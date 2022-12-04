@@ -1,5 +1,6 @@
 // Grab the rucksacks from the input
-const rucksacks = (await Deno.readTextFile('./data/03.txt')).split('\n');
+const rucksacks = (await Deno.readTextFile(new URL('./input.txt', import.meta.url)))
+    .split('\n');
 
 // Converts a rucksack into 2 compartments
 const asCompartments = (rucksack: string) => {

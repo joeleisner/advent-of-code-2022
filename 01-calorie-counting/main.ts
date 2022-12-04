@@ -1,5 +1,5 @@
 // Grab the raw data from a text file
-const raw = await Deno.readTextFile('./data/01.txt');
+const raw = await Deno.readTextFile(new URL('./input.txt', import.meta.url));
 // Example: 100\n200\n300\n\n400\n500\n\n800
 
 // Convert the raw data to an array of numbers (with empty strings converted to a zero)

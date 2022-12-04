@@ -15,7 +15,7 @@ const asAssignmentTuples = (assignmentRanges: AssignmentRange[]) => (
 );
 
 // Grab the assignment pairs from the input data
-const assignmentPairs = (await Deno.readTextFile('./data/04.txt'))
+const assignmentPairs = (await Deno.readTextFile(new URL('./input.txt', import.meta.url)))
     // 1. Split the data at every new line character
     .split('\n')
     // 2. Convert each assignment pair string into an array

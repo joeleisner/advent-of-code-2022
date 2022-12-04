@@ -1,5 +1,5 @@
 // Grab the raw data from a text file
-const raw = await Deno.readTextFile('./data/02.txt');
+const raw = await Deno.readTextFile(new URL('./input.txt', import.meta.url));
 // Example: A Y\nB X\nC Z
 
 type OpponentMove = 'A' | 'B' | 'C';
