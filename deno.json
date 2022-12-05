@@ -3,6 +3,7 @@
         "day-01": "deno run --allow-read=. 01-calorie-counting/main.ts",
         "day-02": "deno run --allow-read=. 02-rock-paper-scissors/main.ts",
         "day-03": "deno run --allow-read=. 03-rucksack-reorganization/main.ts",
-        "day-04": "deno run --allow-read=. 04-camp-cleanup/main.ts"
+        "day-04": "deno run --allow-read=. 04-camp-cleanup/main.ts",
+        "day-05": "deno run --allow-read=. 05-supply-stacks/main.ts"
     }
 }
