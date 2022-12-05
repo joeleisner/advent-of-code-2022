@@ -22,21 +22,27 @@ deno test
 ## Operation
 
 ```sh
+# Run all completed code challenges
+deno task days
+
 # Run the completed code challenges for each day
 deno task day-01
 deno task day-02
 deno task day-03
 # ...
 
-# Run the tests for each daily challenge
+# Test each daily challenge
 deno task test-days
 
-# Run a test for a specific daily challenge
+# Test a specific daily challenge
 deno task test-day-01
 deno task test-day-02
 deno task test-day-03
 # ...
 
-# Run the tests for each library
+# Test each library
 deno task test-libs
+
+# Test all code
+deno test
 ```
