@@ -49,7 +49,7 @@ function overallRoundScore([opponentScore, yourScore]: RoundScores) {
     return yourScore;
 }
 
-import { math } from '../../lib/mod.ts';
+import { math } from '@lib/mod.ts';
 
 // Returns the total score of all rounds
 export const overallTotalScore = (rounds: Round[]) => (

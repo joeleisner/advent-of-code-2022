@@ -5,7 +5,7 @@ for await (const { name, isDirectory } of Deno.readDir(new URL('./', import.meta
 }
 
 import { green, cyan } from 'std/fmt/colors.ts';
-import { string } from '../lib/mod.ts';
+import { string } from '@lib/mod.ts';
 
 for (const day of days.sort()) {
     const [ number, ...title ] = day.split('-');

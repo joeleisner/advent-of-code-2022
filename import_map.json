@@ -1,5 +1,6 @@
 {
     "imports": {
+        "@lib/": "./lib/",
         "std/": "https://deno.land/std@0.167.0/"
     }
 }
