@@ -1,6 +1,5 @@
-// Grab the rucksacks from the input
-const rucksacks = (await Deno.readTextFile(new URL('./input.txt', import.meta.url)))
-    .split('\n');
+// Parses the rucksacks from the input
+export const parseInput = (input: string) => input.split('\n');
 
 // Converts a rucksack into 2 compartments
 const asCompartments = (rucksack: string) => {
@@ -47,27 +46,22 @@ const convertItemTypeToPriorityValue = (itemType: string) => {
     return alphabetPosition + capitalizedOffset;
 }
 
-// Sums two numbers together
-const sum = (first: number, second: number) => first + second;
+import { math } from '@lib/mod.ts';
 
-// Convert the rucksacks into the sum of their priority item type value
-const rucksackItemPrioritySum = rucksacks
-    // 1. Split each rucksack into two compartments
-    .map(asCompartments)
-    // 2. Find the similar item type between both compartments
-    .map(findSimilarItemType)
-    // 3. Convert the similar item type to its priority value
-    .map(convertItemTypeToPriorityValue)
-    // 4. Sum the priority values
-    .reduce(sum);
-
-console.log(
-    'Sum of priority item types:',
-    rucksackItemPrioritySum,
-    '(Part 1)'
+// Converts the rucksacks into the sum of their priority item type value
+export const getRucksackItemPrioritySum = (rucksacks: string[]) => (
+    rucksacks
+        // 1. Split each rucksack into two compartments
+        .map(asCompartments)
+        // 2. Find the similar item type between both compartments
+        .map(findSimilarItemType)
+        // 3. Convert the similar item type to its priority value
+        .map(convertItemTypeToPriorityValue)
+        // 4. Sum the priority values
+        .reduce(math.sum)
 );
 
-// Convert the rucksacks into groups of 3
+// Converts the rucksacks into groups of 3
 const groupByThree = ([
     firstRucksack,
     secondRucksack,
@@ -89,17 +83,13 @@ const groupByThree = ([
     return [group].concat(groupByThree(otherRucksacks));
 }
 
-// Convert the rucksacks in groups of 3 into the sum of their priority item type value
-const rucksackGroupBadgePrioritySum = groupByThree(rucksacks)
-    // 1. Find the similar item type between all 3 rucksacks
-    .map(findSimilarItemType)
-    // 2. Convert the similar item type to its priority value
-    .map(convertItemTypeToPriorityValue)
-    // 3. Sum the priority values
-    .reduce(sum);
-
-console.log(
-    'Sum of priority item types:',
-    rucksackGroupBadgePrioritySum,
-    '(Part 2)'
+// Converts the rucksacks in groups of 3 into the sum of their priority item type value
+export const getRucksackGroupBadgePrioritySum = (rucksacks: string[]) => (
+    groupByThree(rucksacks)
+        // 1. Find the similar item type between all 3 rucksacks
+        .map(findSimilarItemType)
+        // 2. Convert the similar item type to its priority value
+        .map(convertItemTypeToPriorityValue)
+        // 3. Sum the priority values
+        .reduce(math.sum)
 );

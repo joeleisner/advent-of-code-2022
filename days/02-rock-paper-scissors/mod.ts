@@ -1,16 +1,15 @@
-// Grab the raw data from a text file
-const raw = await Deno.readTextFile(new URL('./input.txt', import.meta.url));
-// Example: A Y\nB X\nC Z
-
 type OpponentMove = 'A' | 'B' | 'C';
 type YourMove = 'X' | 'Y' | 'Z';
 type Round = [OpponentMove,YourMove];
 
-// Convert the raw data to an matrix of RPS rounds
-const rounds = raw
-    .split('\n') // 1. Split the data by new line characters
-    .map((round) => round.split(' ')) as Round[]; // 2. Split each round by a space character
-// Example: [['A', 'Y'], ['B', 'X'], ['C', 'Z']]
+// Converts the input data to a matrix of RPS rounds
+export const parseInput = (input: string) => (
+    input
+        // 1. Split the data by new line characters
+        .split('\n')
+        // 2. Split each round by a space character
+        .map((round) => round.split(' ')) as Round[]
+);
 
 type Move = OpponentMove | YourMove;
 
@@ -50,14 +49,14 @@ function overallRoundScore([opponentScore, yourScore]: RoundScores) {
     return yourScore;
 }
 
-// The first array of your overall round scores
-const firstScores = rounds.map(round => {
-    return overallRoundScore(round.map(moveScore) as RoundScores);
-});
+import { math } from '@lib/mod.ts';
 
-// Your first total score
-const firstTotalScore = firstScores.reduce((total, score) => total + score, 0);
-console.log('Your total score:', firstTotalScore, '(Part 1)');
+// Returns the total score of all rounds
+export const overallTotalScore = (rounds: Round[]) => (
+    rounds
+        .map((round) => overallRoundScore(round.map(moveScore) as RoundScores))
+        .reduce(math.sum)
+);
 
 // Returns your move score based on your move (how the round should end) and your opponent's score
 function comparativeMoveScore(
@@ -82,12 +81,15 @@ function comparativeMoveScore(
     return opponentScore + 1 as MoveScore;
 }
 
-// The second array of your overall round scores
-const secondScores = rounds.map(([opponentMove, yourMove]) => {
-    const opponentScore = moveScore(opponentMove);
-    return overallRoundScore([opponentScore,comparativeMoveScore(yourMove, opponentScore)]);
-});
-
-// Your second total score
-const secondTotalScores = secondScores.reduce((total, score) => total + score, 0);
-console.log('Your total score:', secondTotalScores, '(Part 2)');
+// Returns the total score of all rounds when basing your move score on your opponent's score
+export const comparativeTotalScore = (rounds: Round[]) => (
+    rounds
+        .map(([ oppenentMove, yourMove ]) => {
+            const opponentScore = moveScore(oppenentMove);
+            return overallRoundScore([
+                opponentScore,
+                comparativeMoveScore(yourMove, opponentScore)
+            ]);
+        })
+        .reduce(math.sum)
+);

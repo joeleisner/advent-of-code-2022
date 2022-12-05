@@ -10,7 +10,7 @@ const rotate = (matrix: string[][]) => (
 type Crates = string[][];
 
 // Convert the crates into a matrix of character strings
-const formatCrates = (crates: string) => {
+const parseCrates = (crates: string) => {
     const matrix = crates
         // 1. Split the crates by every new line
         .split('\n')
@@ -38,7 +38,7 @@ type Instruction = [
 type Instructions = Instruction[];
 
 // Convert instructions string to an array of instruction tuples
-const formatInstructions = (instructions: string) => {
+const parseInstructions = (instructions: string) => {
     return instructions
         // 1. Split the instructions by every new line
         .split('\n')
@@ -53,21 +53,17 @@ const formatInstructions = (instructions: string) => {
         )) as Instructions;
 }
 
-// Formats the input as crates or instructions
-const formatInput = (input: string, index: number) => (
-    !index ? formatCrates(input) : formatInstructions(input)
-);
-
-// Grab the crates and instructions from the data input
-const [
-    crates,
-    instructions
-] = (await Deno.readTextFile(new URL('./input.txt', import.meta.url)))
-    .split('\n\n')
-    .map(formatInput) as [Crates,Instructions];
+// Formats the data into crates and instructions
+export const parseInput = (input: string) => (
+    input
+        .split('\n\n')
+        .map((input: string, index: number) => (
+            !index ? parseCrates(input) : parseInstructions(input)
+        )) as [Crates,Instructions]
+)
 
 // Rearrange the given crates with the given instructions
-const rearrangedTopCrates = (
+export const rearrangedTopCrates = (
     crates: Crates,
     instructions: Instructions,
     individually = true
@@ -92,20 +88,3 @@ const rearrangedTopCrates = (
         .map((stack) => stack.at(-1))
         .join('');
 }
-
-// Get the top crates after rearranging (CrateMover 9000: Indivudal)
-const firstRearrangedTopCrates = rearrangedTopCrates(
-    crates,
-    instructions
-);
-
-console.log('Rearranged top crates:', firstRearrangedTopCrates, '(Part 1)');
-
-// Get the top crates after rearranging (CrateMover 9001: Grouped)
-const secondRearrangedTopCrates = rearrangedTopCrates(
-    crates,
-    instructions,
-    false
-);
-
-console.log('Rearranged top crates:', secondRearrangedTopCrates, '(Part 2)');
