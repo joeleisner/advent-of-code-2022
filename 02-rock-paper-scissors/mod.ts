@@ -49,13 +49,13 @@ function overallRoundScore([opponentScore, yourScore]: RoundScores) {
     return yourScore;
 }
 
-const sum = (first: number, second: number) => first + second;
+import { math } from '../lib/mod.ts';
 
 // Returns the total score of all rounds
 export const overallTotalScore = (rounds: Round[]) => (
     rounds
         .map((round) => overallRoundScore(round.map(moveScore) as RoundScores))
-        .reduce(sum)
+        .reduce(math.sum)
 );
 
 // Returns your move score based on your move (how the round should end) and your opponent's score
@@ -91,5 +91,5 @@ export const comparativeTotalScore = (rounds: Round[]) => (
                 comparativeMoveScore(yourMove, opponentScore)
             ]);
         })
-        .reduce(sum)
+        .reduce(math.sum)
 );

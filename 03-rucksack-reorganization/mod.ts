@@ -46,8 +46,7 @@ const convertItemTypeToPriorityValue = (itemType: string) => {
     return alphabetPosition + capitalizedOffset;
 }
 
-// Sums two numbers together
-const sum = (first: number, second: number) => first + second;
+import { math } from '../lib/mod.ts';
 
 // Converts the rucksacks into the sum of their priority item type value
 export const getRucksackItemPrioritySum = (rucksacks: string[]) => (
@@ -59,7 +58,7 @@ export const getRucksackItemPrioritySum = (rucksacks: string[]) => (
         // 3. Convert the similar item type to its priority value
         .map(convertItemTypeToPriorityValue)
         // 4. Sum the priority values
-        .reduce(sum)
+        .reduce(math.sum)
 );
 
 // Converts the rucksacks into groups of 3
@@ -92,5 +91,5 @@ export const getRucksackGroupBadgePrioritySum = (rucksacks: string[]) => (
         // 2. Convert the similar item type to its priority value
         .map(convertItemTypeToPriorityValue)
         // 3. Sum the priority values
-        .reduce(sum)
+        .reduce(math.sum)
 );
