@@ -1,4 +1,5 @@
 {
+    "importMap": "import_map.json",
     "tasks": {
         "day-01": "deno run --allow-read=. 01-calorie-counting/main.ts",
         "day-02": "deno run --allow-read=. 02-rock-paper-scissors/main.ts",

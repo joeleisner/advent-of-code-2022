@@ -1,38 +1,14 @@
-type AssignmentRange = `${string}-${string}`;
+import {
+    onlyContainedPairs,
+    onlyOverlappingPairs,
+    parseInput
+} from './mod.ts';
 
-// Converts an assignment range pair string to array
-const asAssignmentRangePairs = (assignmentPair: string) => (
-    assignmentPair.split(',') as AssignmentRange[]
-);
+// Grab the input data
+const input = await Deno.readTextFile(new URL('./input.txt', import.meta.url));
 
-type AssignmentTuple = [number,number];
-
-// Converts multiple assignment range strings into tuples
-const asAssignmentTuples = (assignmentRanges: AssignmentRange[]) => (
-    assignmentRanges.map(
-        (assignmentRange) => assignmentRange.split('-').map(Number) as AssignmentTuple
-    )
-);
-
-// Grab the assignment pairs from the input data
-const assignmentPairs = (await Deno.readTextFile(new URL('./input.txt', import.meta.url)))
-    // 1. Split the data at every new line character
-    .split('\n')
-    // 2. Convert each assignment pair string into an array
-    .map(asAssignmentRangePairs)
-    // 3. Convert each assignment range into a tuple
-    .map(asAssignmentTuples);
-
-// Returns whether the given assignment pairs contain one another
-const onlyContainedPairs = ([
-    [ firstAssignmentStart, firstAssignmentEnd ],
-    [ secondAssignmentStart, secondAssignmentEnd ]
-]: AssignmentTuple[]) => (
-    // If A starts before B and A ends after B ends or...
-    (firstAssignmentStart <= secondAssignmentStart && firstAssignmentEnd >= secondAssignmentEnd) ||
-    // ... if B starts before A and B ends after A ends
-    (secondAssignmentStart <= firstAssignmentStart && secondAssignmentEnd >= firstAssignmentEnd)
-);
+// Get the assignment pairs from the input data
+const assignmentPairs = parseInput(input);
 
 // The amount of fully contained assignment pairs
 const containedPairsAmount = assignmentPairs
@@ -42,17 +18,6 @@ const containedPairsAmount = assignmentPairs
     .length;
 
 console.log('Fully contained pairs:', containedPairsAmount, '(Part 1)');
-
-// Returns whether the given assignment pairs overlap one another
-const onlyOverlappingPairs = ([
-    [ firstAssignmentStart, firstAssignmentEnd ],
-    [ secondAssignmentStart, secondAssignmentEnd ]
-]: AssignmentTuple[]) => (
-    // If A starts after B starts but before B ends or...
-    (firstAssignmentStart >= secondAssignmentStart && firstAssignmentStart <= secondAssignmentEnd) ||
-    // ... if B starts after A starts but before A ends
-    (secondAssignmentStart >= firstAssignmentStart && secondAssignmentStart <= firstAssignmentEnd)
-);
 
 // The amount of overlapping assignment pairs
 const overlappingPairsAmount = assignmentPairs
