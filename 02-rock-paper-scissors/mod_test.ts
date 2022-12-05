@@ -9,7 +9,7 @@ const input = `A Y
 B X
 C Z`;
 
-Deno.test('Day 2: Rock Paper Scissors', async (test) => {
+Deno.test('Day 02: Rock Paper Scissors', async (test) => {
     await test.step(
         'Parse input',
         () => {

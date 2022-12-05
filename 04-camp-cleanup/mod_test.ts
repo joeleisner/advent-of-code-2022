@@ -12,7 +12,7 @@ const input = `2-4,6-8
 6-6,4-6
 2-6,4-8`;
 
-Deno.test('Day 4: Camp Cleanup', async (test) => {
+Deno.test('Day 04: Camp Cleanup', async (test) => {
     await test.step(
         'Parse input',
         () => {

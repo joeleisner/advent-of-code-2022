@@ -16,7 +16,7 @@ const input = `1000
 
 10000`;
 
-Deno.test('Day 1: Calorie Counting', async (test) => {
+Deno.test('Day 01: Calorie Counting', async (test) => {
     await test.step(
         'Parse input',
         () => {

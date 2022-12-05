@@ -12,7 +12,7 @@ wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw`;
 
-Deno.test('Day 3: Rucksack Reorganization', async (test) => {
+Deno.test('Day 03: Rucksack Reorganization', async (test) => {
     await test.step(
         'Parse input',
         () => {

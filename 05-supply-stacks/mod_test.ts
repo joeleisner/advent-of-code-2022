@@ -11,7 +11,7 @@ move 3 from 1 to 3
 move 2 from 2 to 1
 move 1 from 1 to 2`;
 
-Deno.test('Day 5: Supply Stacks', async (test) => {
+Deno.test('Day 05: Supply Stacks', async (test) => {
     await test.step(
         'Parse input',
         async () => {
