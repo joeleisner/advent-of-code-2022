@@ -31,7 +31,7 @@ export const parseInput = (input: string) => {
     return matrix;
 }
 
-import { math, sort } from '../lib/mod.ts';
+import { math, sort } from '../../lib/mod.ts';
 
 // Converts a calorie matrix into an array of top calories (largets to smallest)
 export const topCalories = (matrix: number[][]) => (

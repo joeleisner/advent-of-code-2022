@@ -46,7 +46,7 @@ const convertItemTypeToPriorityValue = (itemType: string) => {
     return alphabetPosition + capitalizedOffset;
 }
 
-import { math } from '../lib/mod.ts';
+import { math } from '../../lib/mod.ts';
 
 // Converts the rucksacks into the sum of their priority item type value
 export const getRucksackItemPrioritySum = (rucksacks: string[]) => (
