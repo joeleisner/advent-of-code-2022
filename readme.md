@@ -36,7 +36,7 @@ deno task day-03
 # ...
 
 # Test each daily challenge
-deno task test-days
+deno test days
 
 # Test a specific daily challenge
 deno task test-day-01
@@ -45,7 +45,7 @@ deno task test-day-03
 # ...
 
 # Test each library
-deno task test-libs
+deno test lib
 
 # Test all code
 deno test

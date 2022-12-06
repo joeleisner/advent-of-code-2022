@@ -14,13 +14,11 @@
         "day-04": "deno run --allow-read=. days/04-camp-cleanup/main.ts",
         "day-05": "deno run --allow-read=. days/05-supply-stacks/main.ts",
         "day-06": "deno run --allow-read=. days/06-tuning-trouble/main.ts",
-        "test-days": "deno test days/",
-        "test-day-01": "deno test days/01-calorie-counting/mod_test.ts",
-        "test-day-02": "deno test days/02-rock-paper-scissors/mod_test.ts",
-        "test-day-03": "deno test days/03-rucksack-reorganization/mod_test.ts",
-        "test-day-04": "deno test days/04-camp-cleanup/mod_test.ts",
-        "test-day-05": "deno test days/05-supply-stacks/mod_test.ts",
-        "test-day-06": "deno test days/06-tuning-trouble/mod_test.ts",
-        "test-libs": "deno test lib/"
+        "test-day-01": "deno test days/01-calorie-counting",
+        "test-day-02": "deno test days/02-rock-paper-scissors",
+        "test-day-03": "deno test days/03-rucksack-reorganization",
+        "test-day-04": "deno test days/04-camp-cleanup",
+        "test-day-05": "deno test days/05-supply-stacks",
+        "test-day-06": "deno test days/06-tuning-trouble"
     }
 }
