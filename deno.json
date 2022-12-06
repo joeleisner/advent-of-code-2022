@@ -1,4 +1,10 @@
 {
+    "fmt": {
+        "options": {
+            "indentWidth": 4,
+            "singleQuote": true
+        }
+    },
     "importMap": "import_map.json",
     "tasks": {
         "days": "deno run --allow-read=. days/main.ts",
