@@ -7,13 +7,14 @@ const asAssignmentRangePairs = (assignmentPair: string) => (
 
 type AssignmentTuple = [
     start: number,
-    end: number
+    end: number,
 ];
 
 // Converts multiple assignment range strings into tuples
 const asAssignmentTuples = (assignmentRanges: AssignmentRange[]) => (
     assignmentRanges.map(
-        (assignmentRange) => assignmentRange.split('-').map(Number) as AssignmentTuple
+        (assignmentRange) =>
+            assignmentRange.split('-').map(Number) as AssignmentTuple,
     )
 );
 
@@ -30,22 +31,26 @@ export const parseInput = (input: string) => (
 
 // Returns whether the given assignment pairs contain one another
 export const onlyContainedPairs = ([
-    [ firstAssignmentStart, firstAssignmentEnd ],
-    [ secondAssignmentStart, secondAssignmentEnd ]
+    [firstAssignmentStart, firstAssignmentEnd],
+    [secondAssignmentStart, secondAssignmentEnd],
 ]: AssignmentTuple[]) => (
     // If A starts before B and A ends after B ends or...
-    (firstAssignmentStart <= secondAssignmentStart && firstAssignmentEnd >= secondAssignmentEnd) ||
+    (firstAssignmentStart <= secondAssignmentStart &&
+        firstAssignmentEnd >= secondAssignmentEnd) ||
     // ... if B starts before A and B ends after A ends
-    (secondAssignmentStart <= firstAssignmentStart && secondAssignmentEnd >= firstAssignmentEnd)
+    (secondAssignmentStart <= firstAssignmentStart &&
+        secondAssignmentEnd >= firstAssignmentEnd)
 );
 
 // Returns whether the given assignment pairs overlap one another
 export const onlyOverlappingPairs = ([
-    [ firstAssignmentStart, firstAssignmentEnd ],
-    [ secondAssignmentStart, secondAssignmentEnd ]
+    [firstAssignmentStart, firstAssignmentEnd],
+    [secondAssignmentStart, secondAssignmentEnd],
 ]: AssignmentTuple[]) => (
     // If A starts after B starts but before B ends or...
-    (firstAssignmentStart >= secondAssignmentStart && firstAssignmentStart <= secondAssignmentEnd) ||
+    (firstAssignmentStart >= secondAssignmentStart &&
+        firstAssignmentStart <= secondAssignmentEnd) ||
     // ... if B starts after A starts but before A ends
-    (secondAssignmentStart >= firstAssignmentStart && secondAssignmentStart <= firstAssignmentEnd)
+    (secondAssignmentStart >= firstAssignmentStart &&
+        secondAssignmentStart <= firstAssignmentEnd)
 );

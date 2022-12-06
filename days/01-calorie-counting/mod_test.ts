@@ -24,14 +24,14 @@ Deno.test('Day 01: Calorie Counting', async (test) => {
             assertEquals(
                 calorieMatrix,
                 [
-                    [ 1000, 2000, 3000 ],
-                    [ 4000 ],
-                    [ 5000, 6000 ],
-                    [ 7000, 8000, 9000 ],
-                    [ 10000 ]
-                ]
-            )
-        }
+                    [1000, 2000, 3000],
+                    [4000],
+                    [5000, 6000],
+                    [7000, 8000, 9000],
+                    [10000],
+                ],
+            );
+        },
     );
 
     const calorieMatrix = parseInput(input);
@@ -47,9 +47,9 @@ Deno.test('Day 01: Calorie Counting', async (test) => {
                     11000,
                     10000,
                     6000,
-                    4000
-                ]
+                    4000,
+                ],
             );
-        }
+        },
     );
 });

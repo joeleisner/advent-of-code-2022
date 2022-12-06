@@ -1,7 +1,7 @@
 import {
-    parseInput,
     getStartOfMessageMarker,
-    getStartOfPacketMarker
+    getStartOfPacketMarker,
+    parseInput,
 } from './mod.ts';
 
 // Grab the input data

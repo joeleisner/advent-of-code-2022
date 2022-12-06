@@ -7,9 +7,9 @@ Deno.test('Math library', async (test) => {
         () => {
             assertEquals(
                 sum(1, 2),
-                3
+                3,
             );
-        }
+        },
     );
 
     await test.step(
@@ -17,12 +17,18 @@ Deno.test('Math library', async (test) => {
         () => {
             assertEquals(
                 sumAll([
-                    1, 2, 3,
-                    4, 5, 6, 
-                    7, 8, 9
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
                 ]),
-                45
+                45,
             );
-        }
+        },
     );
 });

@@ -1,9 +1,5 @@
 import { assertEquals } from 'std/testing/asserts.ts';
-import {
-    comparativeTotalScore,
-    overallTotalScore,
-    parseInput
-} from './mod.ts';
+import { comparativeTotalScore, overallTotalScore, parseInput } from './mod.ts';
 
 const input = `A Y
 B X
@@ -17,12 +13,12 @@ Deno.test('Day 02: Rock Paper Scissors', async (test) => {
             assertEquals(
                 rounds,
                 [
-                    [ 'A', 'Y' ],
-                    [ 'B', 'X' ],
-                    [ 'C', 'Z' ]
-                ]
+                    ['A', 'Y'],
+                    ['B', 'X'],
+                    ['C', 'Z'],
+                ],
             );
-        }
+        },
     );
 
     const rounds = parseInput(input);
@@ -33,9 +29,9 @@ Deno.test('Day 02: Rock Paper Scissors', async (test) => {
             const totalScore = overallTotalScore(rounds);
             assertEquals(
                 totalScore,
-                15
+                15,
             );
-        }
+        },
     );
 
     await test.step(
@@ -44,8 +40,8 @@ Deno.test('Day 02: Rock Paper Scissors', async (test) => {
             const totalScore = comparativeTotalScore(rounds);
             assertEquals(
                 totalScore,
-                12
+                12,
             );
-        }
-    )
+        },
+    );
 });

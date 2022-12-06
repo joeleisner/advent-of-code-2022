@@ -7,8 +7,8 @@ Deno.test('String library', async (test) => {
         () => {
             assertEquals(
                 capitalize('joel'),
-                'Joel'
+                'Joel',
             );
-        }
+        },
     );
 });

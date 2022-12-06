@@ -29,7 +29,7 @@ export const parseInput = (input: string) => {
     }
 
     return matrix;
-}
+};
 
 import { math, sort } from '@lib/mod.ts';
 

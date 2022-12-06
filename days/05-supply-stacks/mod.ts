@@ -3,9 +3,9 @@ const rotate = (matrix: string[][]) => (
     matrix[0].map((_column, columnItem) => (
         matrix.map((_row, rowItem) => (
             matrix[rowItem][columnItem]
-        )).reverse())
-    )
-)
+        )).reverse()
+    ))
+);
 
 type Crates = string[][];
 
@@ -27,12 +27,12 @@ const parseCrates = (crates: string) => {
     return rotate(matrix)
         // 1. Remove empty values from the stack
         .map((stack) => stack.filter(Boolean)) as Crates;
-}
+};
 
 type Instruction = [
     quantity: number,
     from: number,
-    to: number
+    to: number,
 ];
 
 type Instructions = Instruction[];
@@ -51,7 +51,7 @@ const parseInstructions = (instructions: string) => {
                     !index ? action * -1 : action - 1
                 ))
         )) as Instructions;
-}
+};
 
 // Formats the data into crates and instructions
 export const parseInput = (input: string) => (
@@ -59,20 +59,20 @@ export const parseInput = (input: string) => (
         .split('\n\n')
         .map((input: string, index: number) => (
             !index ? parseCrates(input) : parseInstructions(input)
-        )) as [Crates,Instructions]
-)
+        )) as [Crates, Instructions]
+);
 
 // Rearrange the given crates with the given instructions
 export const rearrangedTopCrates = (
     crates: Crates,
     instructions: Instructions,
-    individually = true
+    individually = true,
 ) => {
     // Ensure the crates are a copy of the original
     crates = [...crates];
 
     // For each quantity, from, and to of each instruction:
-    for (const [ quantity, from, to ] of instructions) {
+    for (const [quantity, from, to] of instructions) {
         // 1. Grab the crates to be moved
         let cratesToMove = crates[from].slice(quantity);
         // 2. If crates are to be moved individually, reverse the crates to be moved
@@ -80,11 +80,11 @@ export const rearrangedTopCrates = (
         // 2. Remove them from the "from" stack
         crates[from] = crates[from].slice(0, quantity);
         // 3. Move them to the "to" stack
-        crates[to] = [ ...crates[to], ...cratesToMove ];
+        crates[to] = [...crates[to], ...cratesToMove];
     }
 
     // Finally, return the rearranged crates
     return crates
         .map((stack) => stack.at(-1))
         .join('');
-}
+};

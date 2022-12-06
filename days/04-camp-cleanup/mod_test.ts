@@ -1,9 +1,5 @@
 import { assertEquals } from 'std/testing/asserts.ts';
-import {
-    onlyContainedPairs,
-    onlyOverlappingPairs,
-    parseInput
-} from './mod.ts';
+import { onlyContainedPairs, onlyOverlappingPairs, parseInput } from './mod.ts';
 
 const input = `2-4,6-8
 2-3,4-5
@@ -20,15 +16,15 @@ Deno.test('Day 04: Camp Cleanup', async (test) => {
             assertEquals(
                 assignmentPairs,
                 [
-                    [ [ 2, 4 ], [ 6, 8 ] ],
-                    [ [ 2, 3 ], [ 4, 5 ] ],
-                    [ [ 5, 7 ], [ 7, 9 ] ],
-                    [ [ 2, 8 ], [ 3, 7 ] ],
-                    [ [ 6, 6 ], [ 4, 6 ] ],
-                    [ [ 2, 6 ], [ 4, 8 ] ]
-                ]
-            )
-        }
+                    [[2, 4], [6, 8]],
+                    [[2, 3], [4, 5]],
+                    [[5, 7], [7, 9]],
+                    [[2, 8], [3, 7]],
+                    [[6, 6], [4, 6]],
+                    [[2, 6], [4, 8]],
+                ],
+            );
+        },
     );
 
     const assignmentPairs = parseInput(input);
@@ -42,11 +38,11 @@ Deno.test('Day 04: Camp Cleanup', async (test) => {
             assertEquals(
                 containedPairs,
                 [
-                    [ [ 2, 8 ], [ 3, 7 ] ],
-                    [ [ 6, 6 ], [ 4, 6 ] ]
-                ]
+                    [[2, 8], [3, 7]],
+                    [[6, 6], [4, 6]],
+                ],
             );
-        }
+        },
     );
 
     await test.step(
@@ -58,12 +54,12 @@ Deno.test('Day 04: Camp Cleanup', async (test) => {
             assertEquals(
                 overlappingPairs,
                 [
-                    [ [ 5, 7 ], [ 7, 9 ] ],
-                    [ [ 2, 8 ], [ 3, 7 ] ],
-                    [ [ 6, 6 ], [ 4, 6 ] ],
-                    [ [ 2, 6 ], [ 4, 8 ] ]
-                ]
-            )
-        }
+                    [[5, 7], [7, 9]],
+                    [[2, 8], [3, 7]],
+                    [[6, 6], [4, 6]],
+                    [[2, 6], [4, 8]],
+                ],
+            );
+        },
     );
 });

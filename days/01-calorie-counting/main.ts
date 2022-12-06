@@ -10,11 +10,12 @@ const calorieMatrix = parseInput(input);
 const [
     mostCalories,
     secondMostCalories,
-    thirdMostCalories
+    thirdMostCalories,
 ] = topCalories(calorieMatrix);
 
 // Total the top 3 most amount of calories
-const totalCaloriesOfTopThree = mostCalories + secondMostCalories + thirdMostCalories;
+const totalCaloriesOfTopThree = mostCalories + secondMostCalories +
+    thirdMostCalories;
 
 // Console log the most amount of calories...
 console.log('Most calories:', mostCalories, '(Part 1)');
