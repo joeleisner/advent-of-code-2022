@@ -19,6 +19,10 @@ deno test
 - [Deno for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
+Or use
+[Visual Studio Code Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers)
+to get up and running with zero dependencies.
+
 ## Operation
 
 ```sh
