@@ -9,8 +9,8 @@ const asCompartments = (rucksack: string) => {
     const regExp = new RegExp(`.{1,${compartmentSize}}`, 'g');
 
     // Return the rucksack as an array of 2 compartments
-    return rucksack.match(regExp) as [string,string];
-}
+    return rucksack.match(regExp) as [string, string];
+};
 
 // Returns the item type that exists in multiple rucksack inventories
 const findSimilarItemType = (inventories: string[]) => {
@@ -33,7 +33,7 @@ const findSimilarItemType = (inventories: string[]) => {
 
     // Otherwise, return an empty string
     return '';
-}
+};
 
 // Converts a given item type to its priority value
 const convertItemTypeToPriorityValue = (itemType: string) => {
@@ -44,7 +44,7 @@ const convertItemTypeToPriorityValue = (itemType: string) => {
 
     // Return the alphabet position and capitalized offset added together
     return alphabetPosition + capitalizedOffset;
-}
+};
 
 import { math } from '@lib/mod.ts';
 
@@ -72,16 +72,18 @@ const groupByThree = ([
     const group = [
         firstRucksack,
         secondRucksack,
-        thirdRucksack
+        thirdRucksack,
     ];
     // ... and if there are no rucksacks left, return the group as is (with empty elements removed)
-    if (!otherRucksacks.length) return [
-        group.filter(rucksack => rucksack !== undefined)
-    ];
+    if (!otherRucksacks.length) {
+        return [
+            group.filter((rucksack) => rucksack !== undefined),
+        ];
+    }
 
     // Otherwise, return the group and recurse through the other rucksacks
     return [group].concat(groupByThree(otherRucksacks));
-}
+};
 
 // Converts the rucksacks in groups of 3 into the sum of their priority item type value
 export const getRucksackGroupBadgePrioritySum = (rucksacks: string[]) => (

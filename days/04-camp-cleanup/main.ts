@@ -1,8 +1,4 @@
-import {
-    onlyContainedPairs,
-    onlyOverlappingPairs,
-    parseInput
-} from './mod.ts';
+import { onlyContainedPairs, onlyOverlappingPairs, parseInput } from './mod.ts';
 
 // Grab the input data
 const input = await Deno.readTextFile(new URL('./input.txt', import.meta.url));

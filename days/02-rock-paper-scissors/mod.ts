@@ -1,6 +1,6 @@
 type OpponentMove = 'A' | 'B' | 'C';
 type YourMove = 'X' | 'Y' | 'Z';
-type Round = [OpponentMove,YourMove];
+type Round = [OpponentMove, YourMove];
 
 // Converts the input data to a matrix of RPS rounds
 export const parseInput = (input: string) => (
@@ -29,7 +29,7 @@ function moveScore(move: Move) {
 }
 
 type MoveScore = ReturnType<typeof moveScore>;
-type RoundScores = [MoveScore,MoveScore];
+type RoundScores = [MoveScore, MoveScore];
 
 // Returns the overall round score by comparing your score against that of your opponent
 function overallRoundScore([opponentScore, yourScore]: RoundScores) {
@@ -61,7 +61,7 @@ export const overallTotalScore = (rounds: Round[]) => (
 // Returns your move score based on your move (how the round should end) and your opponent's score
 function comparativeMoveScore(
     yourMove: YourMove,
-    opponentScore: MoveScore
+    opponentScore: MoveScore,
 ): MoveScore {
     // If you're meant to draw, return your opponent's score
     if (yourMove === 'Y') return opponentScore;
@@ -84,11 +84,11 @@ function comparativeMoveScore(
 // Returns the total score of all rounds when basing your move score on your opponent's score
 export const comparativeTotalScore = (rounds: Round[]) => (
     rounds
-        .map(([ oppenentMove, yourMove ]) => {
+        .map(([oppenentMove, yourMove]) => {
             const opponentScore = moveScore(oppenentMove);
             return overallRoundScore([
                 opponentScore,
-                comparativeMoveScore(yourMove, opponentScore)
+                comparativeMoveScore(yourMove, opponentScore),
             ]);
         })
         .reduce(math.sum)

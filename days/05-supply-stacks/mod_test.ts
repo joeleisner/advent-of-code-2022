@@ -17,31 +17,31 @@ Deno.test('Day 05: Supply Stacks', async (test) => {
         async () => {
             const [
                 crates,
-                instructions
+                instructions,
             ] = await parseInput(input);
             assertEquals(
                 crates,
                 [
-                    [ 'Z', 'N' ],
-                    [ 'M', 'C', 'D' ],
-                    [ 'P' ]
-                ]
+                    ['Z', 'N'],
+                    ['M', 'C', 'D'],
+                    ['P'],
+                ],
             );
             assertEquals(
                 instructions,
                 [
-                    [ -1, 1, 0 ],
-                    [ -3, 0, 2 ],
-                    [ -2, 1, 0 ],
-                    [ -1, 0, 1 ]
-                ]
-            )
-        }
+                    [-1, 1, 0],
+                    [-3, 0, 2],
+                    [-2, 1, 0],
+                    [-1, 0, 1],
+                ],
+            );
+        },
     );
 
     const [
         crates,
-        instructions
+        instructions,
     ] = await parseInput(input);
 
     await test.step(
@@ -49,9 +49,9 @@ Deno.test('Day 05: Supply Stacks', async (test) => {
         () => {
             assertEquals(
                 rearrangedTopCrates(crates, instructions),
-                'CMZ'
-            )
-        }
+                'CMZ',
+            );
+        },
     );
 
     await test.step(
@@ -59,8 +59,8 @@ Deno.test('Day 05: Supply Stacks', async (test) => {
         () => {
             assertEquals(
                 rearrangedTopCrates(crates, instructions, false),
-                'MCD'
-            )
-        }
+                'MCD',
+            );
+        },
     );
 });

@@ -6,19 +6,19 @@ export const parseInput = (input: string) => (
 // Returns the start-of marker with the given data stream and chunk length
 const getMarker = (
     datastream: string[],
-    chunkLength: number
+    chunkLength: number,
 ) => {
     // Initialize the marker as zero
     let marker = 0;
 
     // For each index (as start) in the data stream:
-    for (const [ start ] of datastream.entries()) {
+    for (const [start] of datastream.entries()) {
         // Get the index of the end of the chunk...
         const end = start + chunkLength;
         // ... and grab a chunk from start to end
         const chunk = datastream.slice(
             start,
-            Math.min(end, datastream.length - 1)
+            Math.min(end, datastream.length - 1),
         );
 
         // If the chunk is not of the specified length...
@@ -34,7 +34,7 @@ const getMarker = (
 
     // Return the marker
     return marker;
-}
+};
 
 // Returns the start-of-packet marker
 export const getStartOfPacketMarker = (datastream: string[]) => (

@@ -1,7 +1,7 @@
 import {
     getRucksackGroupBadgePrioritySum,
     getRucksackItemPrioritySum,
-    parseInput
+    parseInput,
 } from './mod.ts';
 
 // Grab the input data
@@ -16,14 +16,16 @@ const rucksackItemPrioritySum = getRucksackItemPrioritySum(rucksacks);
 console.log(
     'Sum of priority item types:',
     rucksackItemPrioritySum,
-    '(Part 1)'
+    '(Part 1)',
 );
 
 // Convert the rucksacks in groups of 3 into the sum of their priority item type value
-const rucksackGroupBadgePrioritySum = getRucksackGroupBadgePrioritySum(rucksacks);
+const rucksackGroupBadgePrioritySum = getRucksackGroupBadgePrioritySum(
+    rucksacks,
+);
 
 console.log(
     'Sum of priority item types:',
     rucksackGroupBadgePrioritySum,
-    '(Part 2)'
+    '(Part 2)',
 );

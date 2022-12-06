@@ -2,7 +2,7 @@ import { assertEquals } from 'std/testing/asserts.ts';
 import {
     getRucksackGroupBadgePrioritySum,
     getRucksackItemPrioritySum,
-    parseInput
+    parseInput,
 } from './mod.ts';
 
 const input = `vJrwpWtwJgWrhcsFMMfFFhFp
@@ -25,10 +25,10 @@ Deno.test('Day 03: Rucksack Reorganization', async (test) => {
                     'PmmdzqPrVvPwwTWBwg',
                     'wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn',
                     'ttgJtRGJQctTZtZT',
-                    'CrZsJsPPZsGzwwsLwLmpwMDw'
-                ]
-            )
-        }
+                    'CrZsJsPPZsGzwwsLwLmpwMDw',
+                ],
+            );
+        },
     );
 
     const rucksacks = parseInput(input);
@@ -36,22 +36,25 @@ Deno.test('Day 03: Rucksack Reorganization', async (test) => {
     await test.step(
         'Rucksack item priority sum',
         () => {
-            const rucksackPriorityItemSum = getRucksackItemPrioritySum(rucksacks);
+            const rucksackPriorityItemSum = getRucksackItemPrioritySum(
+                rucksacks,
+            );
             assertEquals(
                 rucksackPriorityItemSum,
-                157
+                157,
             );
-        }
+        },
     );
 
     await test.step(
         'Rucksack group badge priority sum',
         () => {
-            const rucksackGroupBadgePrioritySum = getRucksackGroupBadgePrioritySum(rucksacks);
+            const rucksackGroupBadgePrioritySum =
+                getRucksackGroupBadgePrioritySum(rucksacks);
             assertEquals(
                 rucksackGroupBadgePrioritySum,
-                70
+                70,
             );
-        }
-    )
+        },
+    );
 });
