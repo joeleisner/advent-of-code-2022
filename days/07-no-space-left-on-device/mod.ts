@@ -64,7 +64,7 @@ export const parseInput = (
     return directories;
 };
 
-import { math, sort } from '@lib/mod.ts';
+import { sum } from '@lib/math.ts';
 
 // Returns the sum of every directory's size within a given threshold
 export const sumOfDirectories = (
@@ -76,8 +76,10 @@ export const sumOfDirectories = (
         // 1. Filtered to be below/at the given threshold
         .filter((size) => threshold ? size <= threshold : true)
         // 2. Added together
-        .reduce(math.sum)
+        .reduce(sum)
 );
+
+import { ascending } from '@lib/sort.ts';
 
 // Returns the minimum size directory to delete in order to free up space
 export const getSizeOfDirectoryToDelete = (
@@ -95,7 +97,7 @@ export const getSizeOfDirectoryToDelete = (
         // 1. Filtered to be at/above the space needed
         .filter((size) => size >= spaceNeeded)
         // 2. Sorted in ascending order (smallet to largest)
-        .sort(sort.ascending)
+        .sort(ascending)
         // 3. Only the first item (or zero)
         .shift() || 0;
 };

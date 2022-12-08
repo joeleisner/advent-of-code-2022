@@ -25,7 +25,7 @@ const afterTrees = (rowOrColumn: number[], index: number) => (
     rowOrColumn.slice(index + 1)
 );
 
-// Returns the neighboring trees before/after a given index
+// Returns the neighboring trees before/after a given index within a row
 const getRowNeighbors = (
     row: number[],
     index: number,
@@ -39,13 +39,11 @@ const neighborsShortThan = (neighbors: number[][], tree: number) => (
     neighbors.some((row) => row.every(isShorterThan(tree)))
 );
 
+// Returns the neighboring trees before/after a given index within a column
 const getColumnNeighbors = (
     column: number[],
     index: number,
-) => [
-    beforeTrees(column, (column.length - index) - 1),
-    afterTrees(column, (column.length - index) - 1),
-];
+) => getRowNeighbors(column, (column.length - index) - 1);
 
 import { rotateClockwise } from '@lib/matrix.ts';
 
@@ -71,7 +69,7 @@ export const getVisibleTrees = (trees: number[][]) => {
                     rowIndex,
                 ),
             ];
-            // ... and if any set are shorter thean the current tree, mark it as visible
+            // ... and if any set are shorter than the current tree, mark it as visible
             if (neighborsShortThan(neighbors, tree)) return visible += 1;
         });
     });

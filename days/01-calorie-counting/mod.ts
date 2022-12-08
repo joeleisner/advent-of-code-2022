@@ -31,13 +31,14 @@ export const parseInput = (input: string) => {
     return matrix;
 };
 
-import { math, sort } from '@lib/mod.ts';
+import { sumAll } from '@lib/math.ts';
+import { descending } from '@lib/sort.ts';
 
 // Converts a calorie matrix into an array of top calories (largets to smallest)
 export const topCalories = (matrix: number[][]) => (
     matrix
         // 1. Sum each calorie set
-        .map(math.sumAll)
+        .map(sumAll)
         // 2. Sort the calorie sums ind descending order (largest to smallest)
-        .sort(sort.descending)
+        .sort(descending)
 );
