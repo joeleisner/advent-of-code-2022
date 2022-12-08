@@ -1,11 +1,4 @@
-// Rotates a string matrix clockwise
-const rotate = (matrix: string[][]) => (
-    matrix[0].map((_column, columnItem) => (
-        matrix.map((_row, rowItem) => (
-            matrix[rowItem][columnItem]
-        )).reverse()
-    ))
-);
+import { rotateClockwise } from '@lib/matrix.ts';
 
 type Crates = string[][];
 
@@ -24,7 +17,7 @@ const parseCrates = (crates: string) => {
         ));
 
     // Return the matrix rotated 90 degrees (so each array is a stack from bottom to top)
-    return rotate(matrix)
+    return rotateClockwise(matrix)
         // 1. Remove empty values from the stack
         .map((stack) => stack.filter(Boolean)) as Crates;
 };
