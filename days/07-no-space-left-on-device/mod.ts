@@ -99,5 +99,5 @@ export const getSizeOfDirectoryToDelete = (
         // 2. Sorted in ascending order (smallet to largest)
         .sort(ascending)
         // 3. Only the first item (or zero)
-        .shift() || 0;
+        .shift()!;
 };

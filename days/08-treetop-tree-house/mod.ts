@@ -89,7 +89,7 @@ import { descending } from '@lib/sort.ts';
 
 // Returns the highest scenic score within the given tree grid
 export const getHighestScenicScore = (trees: number[][]) => {
-    // Initialize the scenic scores
+    // Initialize the scenic scores array...
     const scenicScores: number[] = [];
     // ... and store a rotated version of the tree grid (columns)
     const columns = rotateClockwise(trees);
@@ -114,7 +114,7 @@ export const getHighestScenicScore = (trees: number[][]) => {
                 // 2. Multiplied together
                 .reduce(multiply);
 
-            // scenicScores.push(leftScore * rightScore * bottomScore * topScore);
+            // Finally, push the score to the scenic score array
             scenicScores.push(score);
         });
     });
