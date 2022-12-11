@@ -18,6 +18,7 @@
         "day-08": "deno run --allow-read=. days/08-treetop-tree-house/main.ts",
         "day-09": "deno run --allow-read=. days/09-rope-bridge/main.ts",
         "day-10": "deno run --allow-read=. days/10-cathode-ray-tube/main.ts",
+        "day-11": "deno run --allow-read=. days/11-monkey-in-the-middle/main.ts",
         "test-day-01": "deno test days/01-calorie-counting",
         "test-day-02": "deno test days/02-rock-paper-scissors",
         "test-day-03": "deno test days/03-rucksack-reorganization",
@@ -27,6 +28,7 @@
         "test-day-07": "deno test days/07-no-space-left-on-device",
         "test-day-08": "deno test days/08-treetop-tree-house",
         "test-day-09": "deno test days/09-rope-bridge",
-        "test-day-10": "deno test days/10-cathode-ray-tube"
+        "test-day-10": "deno test days/10-cathode-ray-tube",
+        "test-day-11": "deno test days/11-monkey-in-the-middle"
     }
 }
