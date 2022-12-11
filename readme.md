@@ -30,18 +30,18 @@ to get up and running with zero dependencies.
 deno task days
 
 # Run the completed code challenges for each day
-deno task day-01
-deno task day-02
-deno task day-03
+deno task day 01
+deno task day 02
+deno task day 03
 # ...
 
 # Test each daily challenge
 deno test days
 
 # Test a specific daily challenge
-deno task test-day-01
-deno task test-day-02
-deno task test-day-03
+deno test days/01-calorie-counting
+deno test days --filter=02
+deno test days --filter=03
 # ...
 
 # Test each library
