@@ -20,18 +20,15 @@ const getDays = async () => {
 // The day directories in the current directory
 export const days = await getDays();
 
-// Returns the day directory for the given number
-export const getDay = (number: string) => (
-    days.find((day) => day.startsWith(number))
-);
-
-import { cyan, green, red } from 'std/fmt/colors.ts';
-
-// Prints an error message to the console and exits the process
-export const error = (message: string) => {
-    console.error(red(message));
-    Deno.exit(1);
+// Returns the day directories filtered to include the given numbers
+export const filterDays = (numbers: string[]) => {
+    // Filter the day directories that include the given numbers...
+    const filtered = days.filter((day) => numbers.includes(day));
+    // ... and return them if any were found, falling back to all days
+    return filtered.length ? filtered : days;
 };
+
+import { cyan, green } from 'std/fmt/colors.ts';
 
 // Gets the day/title from the given directory's readme.md
 const getTitle = async (directory: string) => {

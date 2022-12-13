@@ -2,7 +2,7 @@
 
 ```sh
 # Run the code challenge
-deno task day 02
+deno task days 02
 
 # Test the code challenge
 deno test days/02

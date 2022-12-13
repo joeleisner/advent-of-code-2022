@@ -7,7 +7,6 @@
     },
     "importMap": "import_map.json",
     "tasks": {
-        "days": "deno run --allow-read=. days/all.ts",
-        "day": "deno run --allow-read=. days/individual.ts"
+        "days": "deno run --allow-read=. days/main.ts"
     }
 }
