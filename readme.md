@@ -29,19 +29,22 @@ to get up and running with zero dependencies.
 # Run all completed code challenges
 deno task days
 
+# Run the completed code challenges of a set of days
+deno task days 01 02 03
+
 # Run the completed code challenges for each day
-deno task day 01
-deno task day 02
-deno task day 03
+deno task days 01
+deno task days 02
+deno task days 03
 # ...
 
 # Test each daily challenge
 deno test days
 
 # Test a specific daily challenge
-deno test days/01-calorie-counting
-deno test days --filter=02
-deno test days --filter=03
+deno test days/01
+deno test days/02
+deno test days/03
 # ...
 
 # Test each library
