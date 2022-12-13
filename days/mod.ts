@@ -33,26 +33,33 @@ export const error = (message: string) => {
     Deno.exit(1);
 };
 
-import { capitalize } from '@lib/string.ts';
+// Gets the day/title from the given directory's readme.md
+const getTitle = async (directory: string) => {
+    // Get the contents of the directory's readme.md...
+    const readme = await Deno.readTextFile(
+        new URL(`./${directory}/readme.md`, import.meta.url),
+    );
+    // ... and pull the day/title from its first line
+    const [day, title] = readme
+        .split('\n')[0]
+        .slice(2)
+        .split(': ');
+
+    // Finally, return day with a colon and the title as an array
+    return [day + ':', title];
+};
 
 // Runs a script of the given day directory
 export const runDay = async (
     directory: string,
     file = 'main.ts',
 ) => {
-    // Get the number and title from the directory...
-    const [number, titleStart, ...title] = directory.split('-');
+    // Get the day/title from the directory...
+    const [day, title] = await getTitle(directory);
     // ... and log them to the console with colors
     console.log(
-        green(`Day ${number}:`),
-        cyan(
-            [
-                capitalize(titleStart),
-                ...title.map((word) =>
-                    ['in', 'the'].includes(word) ? word : capitalize(word)
-                ),
-            ].join(' '),
-        ),
+        green(day),
+        cyan(title),
     );
 
     // Finally, import the script to run it
