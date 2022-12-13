@@ -5,5 +5,5 @@
 deno task day 09
 
 # Test the code challenge
-deno test days/09-rope-bridge
+deno test days/09
 ```

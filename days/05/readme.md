@@ -5,5 +5,5 @@
 deno task day 05
 
 # Test the code challenge
-deno test days/05-supply-stacks
+deno test days/05
 ```

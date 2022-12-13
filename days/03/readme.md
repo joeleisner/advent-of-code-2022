@@ -5,5 +5,5 @@
 deno task day 03
 
 # Test the code challenge
-deno test days/03-rucksack-reorganization
+deno test days/03
 ```

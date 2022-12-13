@@ -5,5 +5,5 @@
 deno task day 12
 
 # Test the code challenge
-deno test days/12-hill-climbing-algorithm
+deno test days/12
 ```

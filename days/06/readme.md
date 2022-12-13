@@ -5,5 +5,5 @@
 deno task day 06
 
 # Test the code challenge
-deno test days/06-tuning-trouble
+deno test days/06
 ```

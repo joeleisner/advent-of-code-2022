@@ -5,5 +5,5 @@
 deno task day 02
 
 # Test the code challenge
-deno test days/02-rock-paper-scissors
+deno test days/02
 ```

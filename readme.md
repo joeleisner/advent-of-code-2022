@@ -39,9 +39,9 @@ deno task day 03
 deno test days
 
 # Test a specific daily challenge
-deno test days/01-calorie-counting
-deno test days --filter=02
-deno test days --filter=03
+deno test days/01
+deno test days/02
+deno test days/03
 # ...
 
 # Test each library

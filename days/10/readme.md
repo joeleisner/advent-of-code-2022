@@ -5,5 +5,5 @@
 deno task day 10
 
 # Test the code challenge
-deno test days/10-cathode-ray-tube
+deno test days/10
 ```

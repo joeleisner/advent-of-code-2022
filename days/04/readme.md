@@ -5,5 +5,5 @@
 deno task day 04
 
 # Test the code challenge
-deno test days/04-camp-cleanup
+deno test days/04
 ```

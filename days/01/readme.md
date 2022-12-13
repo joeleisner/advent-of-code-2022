@@ -5,5 +5,5 @@
 deno task day 01
 
 # Test the code challenge
-deno test days/01-calorie-counting
+deno test days/01
 ```

@@ -5,5 +5,5 @@
 deno task day 08
 
 # Test the code challenge
-deno test days/08-treetop-tree-house
+deno test days/08
 ```

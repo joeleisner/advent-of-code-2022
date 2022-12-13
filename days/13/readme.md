@@ -5,5 +5,5 @@
 deno task day 13
 
 # Test the code challenge
-deno test days/13-distress-signal
+deno test days/13
 ```
