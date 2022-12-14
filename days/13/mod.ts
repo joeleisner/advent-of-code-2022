@@ -17,10 +17,7 @@ export const parseInput = (input: string) => (
         )
 );
 
-// Returns whether both packet values are numbers
-const bothNumbers = (left: PacketValue, right: PacketValue) => (
-    [typeof left, typeof right].every((value) => value === 'number')
-);
+import { areNumbers } from '@lib/type.ts';
 
 // Converts a packet value to a packet (if not one already)
 const convertToPacket = (value: PacketValue) => (
@@ -40,7 +37,7 @@ const comparePacketPair = (
         if (rightValue === undefined) return false;
 
         // If both values are numbers,...
-        if (bothNumbers(leftValue, rightValue)) {
+        if (areNumbers(leftValue, rightValue)) {
             // ... continue through the loop if they're the same...
             if (leftValue === rightValue) continue;
             // ... otherwise, return whether the left value is smaller than the right
