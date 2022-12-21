@@ -1,5 +1,14 @@
 import { assertEquals } from 'std/testing/asserts.ts';
-import { multiply, multiplyAll, sum, sumAll } from './math.ts';
+import {
+    divide,
+    divideAll,
+    multiply,
+    multiplyAll,
+    subtract,
+    subtractAll,
+    sum,
+    sumAll,
+} from './math.ts';
 
 Deno.test('Math library', async (test) => {
     await test.step(
@@ -33,6 +42,26 @@ Deno.test('Math library', async (test) => {
     );
 
     await test.step(
+        'Subtract 2 numbers',
+        () => {
+            assertEquals(
+                subtract(4, 3),
+                1,
+            );
+        },
+    );
+
+    await test.step(
+        'Substract an array of numbers',
+        () => {
+            assertEquals(
+                subtractAll([9, 3, 4, 1]),
+                1,
+            );
+        },
+    );
+
+    await test.step(
         'Multipy 2 numbers',
         () => {
             assertEquals(
@@ -58,6 +87,26 @@ Deno.test('Math library', async (test) => {
                     9,
                 ]),
                 362880,
+            );
+        },
+    );
+
+    await test.step(
+        'Divide 2 numbers',
+        () => {
+            assertEquals(
+                divide(4, 2),
+                2,
+            );
+        },
+    );
+
+    await test.step(
+        'Divide an array of numbers',
+        () => {
+            assertEquals(
+                divideAll([6, 3, 2]),
+                1,
             );
         },
     );
