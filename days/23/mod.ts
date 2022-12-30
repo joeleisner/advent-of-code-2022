@@ -120,6 +120,9 @@ const canMove = (
 
 // Yields the elves position keys after moving over the courd of the given rounds
 export const move = function* (elves: Elves, rounds = 10) {
+    // Create a copy of the elves
+    elves = new Set(elves);
+
     // Initialize an array of cardinal directions...
     const directions = ['N', 'S', 'W', 'E'] as CardinalDirection[];
     // ... and a map of next elf positions and their previous positions
@@ -222,4 +225,34 @@ export const getAmountOfEmptyGroundTiles = (
 
     // Finally, return the amount of empty ground tiles
     return empty;
+};
+
+// Returns a string of keys of the given elves
+const getKeysAsString = (elves: Elves) => [...elves].join('');
+
+// Get the amount of rounds until the elves no longer move
+export const getRoundsUntilNoMoves = (elves: Elves, rounds = 10_000) => {
+    // Create a copy of the elves
+    elves = new Set(elves);
+
+    // Initialize the round at 1...
+    let round = 1;
+    // ... and a string of previous elf keys
+    let previousKeys = getKeysAsString(elves);
+
+    // For each round:
+    for (const nextElves of move(elves, rounds)) {
+        // Get a string of next elf keys...
+        const nextKeys = getKeysAsString(nextElves);
+        // ... and if's the same as the previous keys, break (no elves moved)
+        if (nextKeys === previousKeys) break;
+
+        // Otherwise, update the previous keys...
+        previousKeys = nextKeys;
+        // ... and increment the round
+        round++;
+    }
+
+    // Finally, return the amount of rounds it took before no moves were made
+    return round;
 };

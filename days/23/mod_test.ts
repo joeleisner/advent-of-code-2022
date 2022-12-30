@@ -1,5 +1,9 @@
 import { assertEquals } from 'std/testing/asserts.ts';
-import { getAmountOfEmptyGroundTiles, parseInput } from './mod.ts';
+import {
+    getAmountOfEmptyGroundTiles,
+    getRoundsUntilNoMoves,
+    parseInput,
+} from './mod.ts';
 
 const input = `....#..
 ..###.#
@@ -51,6 +55,16 @@ Deno.test('Day 23: Unstable Diffusion', async (test) => {
             assertEquals(
                 getAmountOfEmptyGroundTiles(elves),
                 110,
+            );
+        },
+    );
+
+    await test.step(
+        'Rounds until no moves',
+        () => {
+            assertEquals(
+                getRoundsUntilNoMoves(elves),
+                20,
             );
         },
     );
